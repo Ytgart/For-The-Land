@@ -1,42 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CardView : MonoBehaviour
 {
-    Card Card {get;}
+    private Card _card;
 
     [SerializeField]
-    Text Description {get;}
+    private Text _name;
 
     [SerializeField]
-    Image Image {get;}
+    private Text _description;
 
     [SerializeField]
-    Text Name {get;}
-
-    [SerializeField] 
-    Text Attack { get; }
+    private Image _image;
 
     [SerializeField]
-    Text Defence {get;}
+    private Text _attack;
 
     [SerializeField]
-    Text Cost {get;}
+    private Text _defence;
+
+    [SerializeField]
+    private Text _cost;
 
     void Start()
     {
-        Description.text = Card.Description;
-        Name.text = Card.Name;
-        Attack.text = Card.Attack.ToString();
-        Defence.text = Card.Defence.ToString();
-        Cost.text = Card.Cost.ToString();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _description.text = _card.Description;
+        _name.text = _card.Name;
+        _attack.text = _card.Attack.ToString();
+        _defence.text = _card.Defence.ToString();
+        _cost.text = _card.Cost.ToString();
     }
 }
