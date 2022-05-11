@@ -6,29 +6,30 @@ public class HandView : MonoBehaviour
     [SerializeField]
     private float _circleRadius;
 
-    [SerializeField]
-    private List<GameObject> _cards = new();
-
-    private void Start()
+    public void PlaceCardRounded(List<GameObject> cards)
     {
-        PlaceCardRounded(_cards.Count - 1);
-    }
+        var cardsCount = cards.Count;
 
-    private void PlaceCardRounded(int cardsCount)
-    {
-        var angleToRotate = 130f / cardsCount;
-        var currentAngle = 25f;
-        var rotationAngle = -40f;
+        var angleToRotate = 20f / cardsCount;
+        var startAngle = 80f;
+        var rotationAngle = -10f;
+        var zCoord = 0;
 
-        foreach (var item in _cards)
+        foreach (var item in cards)
         {
-            item.transform.SetPositionAndRotation(
-                GetCoordinatesByAngle(currentAngle),
-                Quaternion.Euler(0, 0, rotationAngle)
-                );
+            item.transform.position = GetCoordinatesByAngle(startAngle);
 
-            currentAngle += angleToRotate;
-            rotationAngle += 10f;
+            if (cards.Count > 4)
+            {
+                item.transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
+            }
+
+            item.GetComponent<Canvas>().sortingOrder = zCoord;
+
+            startAngle += angleToRotate;
+            rotationAngle += 2.5f;
+            zCoord--;
+
         }
     }
 

@@ -14,7 +14,7 @@ public class Card : ScriptableObject
     public string Name;
     public string Description;
     public int Attack;
-    public int Defence;
+    public int Health;
     public int Cost;
     public Element Element;
     public Sprite Image;
