@@ -926,6 +926,7 @@ GameObject:
   - component: {fileID: 5873225978241252217}
   - component: {fileID: 5873225978241252214}
   - component: {fileID: 5873225978241252219}
+  - component: {fileID: 1094605126}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -1060,6 +1061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2f031ae9df813249bd92f493bb4517d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sizeAnimation: {fileID: 1094605126}
   _name: {fileID: 5873225978078577445}
   _description: {fileID: 5873225977453870196}
   _image: {fileID: 5873225976944974476}
@@ -1078,3 +1080,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1660ffda8b8114d995be5907f05b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!111 &1094605126
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5873225978241252211}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 57788cae789d1424093f2f4cf6e0ace0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 57788cae789d1424093f2f4cf6e0ace0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0

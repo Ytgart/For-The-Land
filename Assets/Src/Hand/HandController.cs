@@ -13,7 +13,7 @@ public class HandController : MonoBehaviour
 
     private void Awake()
     {
-        _handBm.OnCardsChanged += _handView.PlaceCardRounded;
+        _handBm.OnCardsChanged += _handView.PlaceCardsWithRotation;
     }
 
     public void AddCard(int id)

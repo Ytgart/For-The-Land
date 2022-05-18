@@ -2,12 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Zenject;
+using UnityEngine.EventSystems;
 
-public class CardView : MonoBehaviour
+public class CardView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler
 {
-    [Inject] private Card _card;
+    [Inject] 
+    private Card _card;
 
-    [SerializeField]
+    [SerializeField] 
     private TMP_Text _name;
 
     [SerializeField]
@@ -24,6 +26,32 @@ public class CardView : MonoBehaviour
 
     [SerializeField]
     private TMP_Text _cost;
+
+    private int zOrder;
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        var rectTransform = (transform as RectTransform);
+        rectTransform.anchoredPosition += eventData.delta;
+        rectTransform.SetParent(null);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.3f).setEaseInSine();
+
+        var canvas = gameObject.GetComponent<Canvas>();
+        zOrder = canvas.sortingOrder;
+        canvas.sortingOrder = 99;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        transform.LeanScale(new Vector3(1, 1, 1), 0.3f);
+
+        var canvas = gameObject.GetComponent<Canvas>();
+        canvas.sortingOrder = zOrder;
+    }
 
     void Start()
     {
