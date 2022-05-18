@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine;
 
 public enum Element
 {
@@ -9,12 +8,14 @@ public enum Element
     Fire
 }
 
-public class Card
+[CreateAssetMenu(menuName = "Cards/DefaultCard")]
+public class Card : ScriptableObject
 {
-    public int Attack {get; private set;}
-    public int Defence {get; private set;}
-    public int Cost {get; private set;}
-    public string Description {get; private set;}
-    public string Name {get; private set;}
-    public Element Element {get; private set;}
+    public string Name;
+    public string Description;
+    public int Attack;
+    public int Health;
+    public int Cost;
+    public Element Element;
+    public Sprite Image;
 }
